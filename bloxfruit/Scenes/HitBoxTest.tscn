@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dapbel2viie5v"]
+
+[ext_resource type="Script" path="res://Scripts/HitBoxTest.gd" id="1_fxs2g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yu5oh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dewvy"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nsx42"]
+material = SubResource("StandardMaterial3D_dewvy")
+
+[node name="Node3D" type="StaticBody3D"]
+script = ExtResource("1_fxs2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_yu5oh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nsx42")

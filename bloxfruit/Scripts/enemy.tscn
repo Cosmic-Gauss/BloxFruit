@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://1m0oo3op8r2c"]
+
+[ext_resource type="Script" path="res://Scripts/Hostile.gd" id="1_psp4u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cvkcr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g7b12"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1l3ll"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wsv1t"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_psp4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cvkcr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_g7b12")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154333, 0.327859, 0)
+mesh = SubResource("SphereMesh_1l3ll")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55883, 0, 0.196498)
+mesh = SubResource("CylinderMesh_wsv1t")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55883, 0, -0.177616)
+mesh = SubResource("CylinderMesh_wsv1t")
